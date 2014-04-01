@@ -13,5 +13,6 @@
 
 @dynamic actor;
 @dynamic passenger;
+@dynamic dead;
 
 @end

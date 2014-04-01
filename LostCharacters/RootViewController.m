@@ -12,11 +12,16 @@
 @interface RootViewController () <UITableViewDataSource, UITableViewDelegate>
 {
     BOOL editing;
+    NSNumber* aliveOrDead;
 }
+@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
+@property (weak, nonatomic) IBOutlet UIToolbar *bottomToolBar;
 @property NSArray* characters;
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (weak, nonatomic) IBOutlet UITextField *passengerTextField;
 @property (weak, nonatomic) IBOutlet UITextField *actorTextField;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
+
 
 
 @end
@@ -28,6 +33,9 @@
     [super viewDidLoad];
     editing = NO;
     [self load];
+    self.toolBar.hidden =! editing;
+    self.bottomToolBar.hidden =! editing;
+    self.addButton.enabled = NO;
 }
 
 -(void)load{
@@ -45,12 +53,15 @@
         LostCharacter* initialCharacter1 = [NSEntityDescription insertNewObjectForEntityForName:@"LostCharacter" inManagedObjectContext:self.managedObjectContext];
         initialCharacter1.actor = @"Mathew Fox";
         initialCharacter1.passenger = @"Jack Shepard";
+        initialCharacter1.dead = 0;
         LostCharacter* initialCharacter2 = [NSEntityDescription insertNewObjectForEntityForName:@"LostCharacter" inManagedObjectContext:self.managedObjectContext];
         initialCharacter2.actor = @"Evangline Lilly";
         initialCharacter2.passenger = @"Kate Austen";
+        initialCharacter2.dead = 0;
         LostCharacter* initialCharacter3 = [NSEntityDescription insertNewObjectForEntityForName:@"LostCharacter" inManagedObjectContext:self.managedObjectContext];
         initialCharacter3.actor = @"Jorge Garcia";
         initialCharacter3.passenger = @"Hugo “Hurley” Reyes";
+        initialCharacter3.dead = 0;
         [self.managedObjectContext save:nil];
         self.characters = @[initialCharacter2, initialCharacter3, initialCharacter1];
     }
@@ -68,9 +79,24 @@
     [self.passengerTextField endEditing:YES];
     [self load];
 }
+- (IBAction)aliveOrDeadSwitch:(UISwitch*)sender {
+    aliveOrDead = [NSNumber numberWithBool:sender.on];
+    NSLog(@"%@", aliveOrDead);
+}
+
 - (IBAction)onEditButtonPressed:(id)sender {
     editing =! editing;
+    if (editing) {
+        float width = self.myTableView.frame.size.width;
+        self.myTableView.frame = CGRectMake(0, 152, width, self.myTableView.frame.size.height+44);
+    }else{
+        float width = self.myTableView.frame.size.width;
+        self.myTableView.frame = CGRectMake(0, 108, width, self.myTableView.frame.size.height-44);
+    }
     self.myTableView.editing = editing;
+    self.toolBar.hidden =! editing;
+    self.bottomToolBar.hidden =!editing;
+    self.addButton.enabled = editing;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -78,11 +104,39 @@
     return self.characters.count;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return @"Smoke Monster";
+}
+
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     LostCharacter* character = self.characters[indexPath.row];
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"LostCharacterCellReuseID"];
-    cell.textLabel.text = character.actor;
+    NSString* dead;
+    if (character.dead == 0) {
+        dead = @"Dead";
+    }
+    else{
+        dead = @"Alive";
+    }
+    if ([character.passenger isEqualToString:@""]) {
+        cell.textLabel.text = @"One of the Others?????";
+        
+    }
+    else{
+        NSString* nameAndStatus = [NSString stringWithFormat:@"%@: %@",character.passenger, dead];
+        cell.textLabel.text = nameAndStatus;
+        
+    }
+    if ([character.actor isEqualToString:@""]) {
+        cell.detailTextLabel.text = @"No audtion set";
+        
+    }
+    else{
+        cell.detailTextLabel.text = character.actor;
+        
+    }
     return cell;
 
 }

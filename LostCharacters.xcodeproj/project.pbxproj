@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		568D566518EB630C00445308 /* LostCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 568D566418EB630C00445308 /* LostCharacter.m */; };
 		56FB0BA618EB351F00D61BB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FB0BA518EB351F00D61BB1 /* Foundation.framework */; };
 		56FB0BA818EB351F00D61BB1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FB0BA718EB351F00D61BB1 /* CoreGraphics.framework */; };
 		56FB0BAA18EB351F00D61BB1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FB0BA918EB351F00D61BB1 /* UIKit.framework */; };
@@ -24,7 +25,6 @@
 		56FB0BD118EB351F00D61BB1 /* LostCharactersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FB0BD018EB351F00D61BB1 /* LostCharactersTests.m */; };
 		56FB0BDB18EB353100D61BB1 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56FB0BDA18EB353100D61BB1 /* Storyboard.storyboard */; };
 		56FB0BDE18EB357700D61BB1 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FB0BDD18EB357700D61BB1 /* RootViewController.m */; };
-		56FB0BE418EB3C5400D61BB1 /* LostCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FB0BE318EB3C5400D61BB1 /* LostCharacter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		568D566318EB630C00445308 /* LostCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LostCharacter.h; sourceTree = "<group>"; };
+		568D566418EB630C00445308 /* LostCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LostCharacter.m; sourceTree = "<group>"; };
 		56FB0BA218EB351F00D61BB1 /* LostCharacters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LostCharacters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FB0BA518EB351F00D61BB1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		56FB0BA718EB351F00D61BB1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -59,8 +61,6 @@
 		56FB0BDA18EB353100D61BB1 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		56FB0BDC18EB357700D61BB1 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		56FB0BDD18EB357700D61BB1 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		56FB0BE218EB3C5400D61BB1 /* LostCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LostCharacter.h; sourceTree = "<group>"; };
-		56FB0BE318EB3C5400D61BB1 /* LostCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LostCharacter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,9 +129,9 @@
 				56FB0BDC18EB357700D61BB1 /* RootViewController.h */,
 				56FB0BDD18EB357700D61BB1 /* RootViewController.m */,
 				56FB0BBC18EB351F00D61BB1 /* Images.xcassets */,
+				568D566318EB630C00445308 /* LostCharacter.h */,
+				568D566418EB630C00445308 /* LostCharacter.m */,
 				56FB0BB918EB351F00D61BB1 /* LostCharacters.xcdatamodeld */,
-				56FB0BE218EB3C5400D61BB1 /* LostCharacter.h */,
-				56FB0BE318EB3C5400D61BB1 /* LostCharacter.m */,
 				56FB0BAE18EB351F00D61BB1 /* Supporting Files */,
 			);
 			path = LostCharacters;
@@ -263,7 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56FB0BBB18EB351F00D61BB1 /* LostCharacters.xcdatamodeld in Sources */,
-				56FB0BE418EB3C5400D61BB1 /* LostCharacter.m in Sources */,
+				568D566518EB630C00445308 /* LostCharacter.m in Sources */,
 				56FB0BB818EB351F00D61BB1 /* AppDelegate.m in Sources */,
 				56FB0BDE18EB357700D61BB1 /* RootViewController.m in Sources */,
 				56FB0BB418EB351F00D61BB1 /* main.m in Sources */,
@@ -463,6 +463,7 @@
 				56FB0BD618EB351F00D61BB1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		56FB0BD718EB351F00D61BB1 /* Build configuration list for PBXNativeTarget "LostCharactersTests" */ = {
 			isa = XCConfigurationList;
@@ -471,6 +472,7 @@
 				56FB0BD918EB351F00D61BB1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

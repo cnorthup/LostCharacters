@@ -2,9 +2,10 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="LostCharacter" representedClassName="LostCharacter" syncable="YES">
         <attribute name="actor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dead" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="passenger" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="LostCharacter" positionX="-54" positionY="-9" width="128" height="75"/>
+        <element name="LostCharacter" positionX="-54" positionY="-9" width="128" height="90"/>
     </elements>
 </model>
