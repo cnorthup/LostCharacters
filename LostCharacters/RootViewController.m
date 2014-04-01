@@ -9,7 +9,7 @@
 #import "RootViewController.h"
 #import "LostCharacter.h"
 
-@interface RootViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface RootViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 {
     BOOL editing;
     NSNumber* aliveOrDead;
@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *passengerTextField;
 @property (weak, nonatomic) IBOutlet UITextField *actorTextField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
+@property NSMutableArray* filtered;
+@property NSString* searchQuery;
 
 
 
@@ -36,6 +38,7 @@
     self.toolBar.hidden =! editing;
     self.bottomToolBar.hidden =! editing;
     self.addButton.enabled = NO;
+    self.filtered = [NSMutableArray new];
 }
 
 -(void)load{
@@ -44,6 +47,8 @@
     NSSortDescriptor* sortDescriptor1 = [[NSSortDescriptor alloc] initWithKey:@"actor" ascending:YES];
     NSSortDescriptor* sortDescriptor2 = [[NSSortDescriptor alloc] initWithKey:@"passenger" ascending:YES];
     NSArray* sortDescriptors = [NSArray arrayWithObjects:sortDescriptor1, sortDescriptor2, nil];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"passenger contains[cd] \"%@\"", self.searchQuery];
+    [request setPredicate:predicate];
     request.sortDescriptors = sortDescriptors;
     NSArray* charactersInDataCore = [self.managedObjectContext executeFetchRequest:request error:nil];
     if (charactersInDataCore.count) {
@@ -139,6 +144,11 @@
     }
     return cell;
 
+}
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    self.searchQuery = searchText;
+    [self load];
 }
 
 @end
