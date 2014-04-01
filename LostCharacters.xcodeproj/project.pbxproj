@@ -22,6 +22,9 @@
 		56FB0BC718EB351F00D61BB1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FB0BAB18EB351F00D61BB1 /* CoreData.framework */; };
 		56FB0BCF18EB351F00D61BB1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56FB0BCD18EB351F00D61BB1 /* InfoPlist.strings */; };
 		56FB0BD118EB351F00D61BB1 /* LostCharactersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FB0BD018EB351F00D61BB1 /* LostCharactersTests.m */; };
+		56FB0BDB18EB353100D61BB1 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56FB0BDA18EB353100D61BB1 /* Storyboard.storyboard */; };
+		56FB0BDE18EB357700D61BB1 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FB0BDD18EB357700D61BB1 /* RootViewController.m */; };
+		56FB0BE418EB3C5400D61BB1 /* LostCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FB0BE318EB3C5400D61BB1 /* LostCharacter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,11 @@
 		56FB0BCC18EB351F00D61BB1 /* LostCharactersTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LostCharactersTests-Info.plist"; sourceTree = "<group>"; };
 		56FB0BCE18EB351F00D61BB1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		56FB0BD018EB351F00D61BB1 /* LostCharactersTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LostCharactersTests.m; sourceTree = "<group>"; };
+		56FB0BDA18EB353100D61BB1 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		56FB0BDC18EB357700D61BB1 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		56FB0BDD18EB357700D61BB1 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		56FB0BE218EB3C5400D61BB1 /* LostCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LostCharacter.h; sourceTree = "<group>"; };
+		56FB0BE318EB3C5400D61BB1 /* LostCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LostCharacter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,7 @@
 		56FB0B9918EB351F00D61BB1 = {
 			isa = PBXGroup;
 			children = (
+				56FB0BDA18EB353100D61BB1 /* Storyboard.storyboard */,
 				56FB0BAD18EB351F00D61BB1 /* LostCharacters */,
 				56FB0BCA18EB351F00D61BB1 /* LostCharactersTests */,
 				56FB0BA418EB351F00D61BB1 /* Frameworks */,
@@ -117,8 +126,12 @@
 			children = (
 				56FB0BB618EB351F00D61BB1 /* AppDelegate.h */,
 				56FB0BB718EB351F00D61BB1 /* AppDelegate.m */,
+				56FB0BDC18EB357700D61BB1 /* RootViewController.h */,
+				56FB0BDD18EB357700D61BB1 /* RootViewController.m */,
 				56FB0BBC18EB351F00D61BB1 /* Images.xcassets */,
 				56FB0BB918EB351F00D61BB1 /* LostCharacters.xcdatamodeld */,
+				56FB0BE218EB3C5400D61BB1 /* LostCharacter.h */,
+				56FB0BE318EB3C5400D61BB1 /* LostCharacter.m */,
 				56FB0BAE18EB351F00D61BB1 /* Supporting Files */,
 			);
 			path = LostCharacters;
@@ -230,6 +243,7 @@
 			files = (
 				56FB0BB218EB351F00D61BB1 /* InfoPlist.strings in Resources */,
 				56FB0BBD18EB351F00D61BB1 /* Images.xcassets in Resources */,
+				56FB0BDB18EB353100D61BB1 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +263,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				56FB0BBB18EB351F00D61BB1 /* LostCharacters.xcdatamodeld in Sources */,
+				56FB0BE418EB3C5400D61BB1 /* LostCharacter.m in Sources */,
 				56FB0BB818EB351F00D61BB1 /* AppDelegate.m in Sources */,
+				56FB0BDE18EB357700D61BB1 /* RootViewController.m in Sources */,
 				56FB0BB418EB351F00D61BB1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
