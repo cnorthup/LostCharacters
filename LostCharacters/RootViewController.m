@@ -180,7 +180,7 @@
     if(searchedTextData.length > 0)
     {
         // Define how we want our entities to be filtered
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(passenger CONTAINS[c] %@) OR (actor CONTAINS[c] %@)", searchedTextData, searchedTextData];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(passenger BEGINSWITH[c] %@) OR (actor BEGINSWITH[c] %@)", searchedTextData, searchedTextData];
         [fetchRequest setPredicate:predicate];
     }
     
